@@ -19,7 +19,7 @@ class Pneuma:
         self.pneuma_level = int(level) + 1
     
     def print_pneuma(self):
-        print(f'Status')
+        print(f'\nStatus')
         print(f'------')
         print(f'pneuma points: {self.pneuma_points}')
         print(f'pneuma level: {self.pneuma_level}')
