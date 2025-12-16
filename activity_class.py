@@ -43,6 +43,9 @@ class Activity:
         print(f'Reward: {self.pneuma_reward}')
         print(f'Occurance: {self.repeat_occurance}')
         print(f'Date last completed: {self.date_last_completed.strftime("%m/%d/%Y")}')
+    
+    def __lt__(self, other):
+        return self.name < other.name
 
 if __name__ == "__main__":
     print("Testing activity class")
@@ -53,9 +56,12 @@ if __name__ == "__main__":
     act = Activity(last_comp="01/05/2024")
     act.print_activity()
 
-    act = Activity(desc="Reading bible", reward=75, last_comp=dt.datetime(2024, 9, 12))
+    act1 = Activity(desc="Reading bible", reward=75, last_comp=dt.datetime(2024, 9, 12))
     act.print_activity()
 
     pts = act.complete_activity()
     act.print_activity()
     print(f'Points received: {pts}')
+
+    # comparison
+    print(f'comparing {act1 > act}')
