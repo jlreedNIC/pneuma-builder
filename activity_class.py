@@ -46,6 +46,9 @@ class Activity:
     
     def __lt__(self, other):
         return self.name < other.name
+    
+    def __eq__(self, other):
+        return (self.name == other.name) and (self.pneuma_reward == other.pneuma_reward) and (self.repeat_occurance == other.repeat_occurance) and (self.date_last_completed == other.date_last_completed)
 
 if __name__ == "__main__":
     print("Testing activity class")
@@ -65,3 +68,6 @@ if __name__ == "__main__":
 
     # comparison
     print(f'comparing {act1 > act}')
+
+    # equals comparison
+    print(f'eq compare {act1 == act}')
