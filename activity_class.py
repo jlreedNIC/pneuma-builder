@@ -48,7 +48,17 @@ class Activity:
         return self.name < other.name
     
     def __eq__(self, other):
-        return (self.name == other.name) and (self.pneuma_reward == other.pneuma_reward) and (self.repeat_occurance == other.repeat_occurance) and (self.date_last_completed == other.date_last_completed)
+        name_eq = (self.name == other.name)
+        pn_eq = self.pneuma_reward == other.pneuma_reward
+        repeat_eq = self.repeat_occurance == other.repeat_occurance
+        reward_eq = (self.date_last_completed.day == other.date_last_completed.day) and \
+                    (self.date_last_completed.month == other.date_last_completed.month) and \
+                    (self.date_last_completed.year == other.date_last_completed.year)
+
+        return name_eq and pn_eq and repeat_eq and reward_eq
+        
+    def __ne__(self, other):
+        return not self.__eq__(other)
 
 if __name__ == "__main__":
     print("Testing activity class")
